@@ -2,6 +2,8 @@ package com.apkaSklepu.database;
 
 import com.apkaSklepu.model.*;
 
+import java.util.Scanner;
+
 public class ProductDB {
 
     private Product[] products = new Product[5];
@@ -14,11 +16,9 @@ public class ProductDB {
         this.products[4] = new Mustard("Roleski",10,"21 days");
     }
 
-    public void buy(){
 
-    }
-
-    public void addProduct(){
-
+    public void adddProduct(int quantity){//!!!
+        System.out.println("quantity: "+ this.products[0].getIlosc());
+        products[0].setIlosc(quantity);
     }
 }
