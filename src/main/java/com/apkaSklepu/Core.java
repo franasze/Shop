@@ -7,43 +7,48 @@ public class Core {
 
     public static void start() {
         final ProductDB productDB = new ProductDB();
-        final UserDB userDB = new UserDB();
+        final UserDB userDB = UserDB.getInstance();
+        final Authenticator authenticator = Authenticator.getInstance();
         boolean isRunning = false;
 
 
         while (!isRunning) {
-            switch (GUI.showMenu2()) {
+            switch (GUI.logMenu()) {
                 case "1":
-                   // Registration.createNewUser(); ???????
-                   // UserDB.addUser();
+                    Registration.createNewUser()
                     break;
                 case "2":
-                    Authenticator.authenticate(GUI.readLoginAndPassword(), userDB);
-                    isRunning = Authenticator.loggedUser != null;
+                    authenticator.authenticate(GUI.readLoginAndPassword());
+                    isRunning = authenticator.loggedUser != null;
                     if (!isRunning) {
                         System.out.println("Not authorized !");
                     }
+                case "3":
+                    System.exit(0);
+                default:
+                    System.out.println("Wrong choose !!");
+                    break;
             }
         }
 
         while(isRunning) {
             switch (GUI.showMenu()){
                 case "1":
-//buy
+
                     break;
                 case "2":
-                    System.exit(0);
+
                     break;
                 case "3":
-                    if(Authenticator.loggedUser != null && Authenticator
+                    if(authenticator.loggedUser != null && Authenticator
                             .loggedUser.getRole().equals("ADMIN")) {
-                        GUI.addProduct();//!!!
+
                     }
                     break;
                 case "4":
-                    if(Authenticator.loggedUser != null && Authenticator
+                    if(authenticator.loggedUser != null && Authenticator
                             .loggedUser.getRole().equals("ADMIN")) {
-                        //...
+
                     }
                     break;
                 default:

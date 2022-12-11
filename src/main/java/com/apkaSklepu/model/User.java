@@ -1,14 +1,11 @@
 package com.apkaSklepu.model;
 
 public class User {
-
     private String login;
-
     private String password;
+    private Role role;
 
-    private String role;
-
-    public User(String login, String password, String role){
+    public User(String login, String password, Role role){
         this.login = login;
         this.password = password;
         this.role = role;
@@ -17,7 +14,6 @@ public class User {
     public User(){
 
     }
-
 
     public String getLogin() {
         return login;
@@ -35,12 +31,16 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
+    }
+    public enum Role{
+        ADMIN,
+        USER
     }
 
 }

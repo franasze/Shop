@@ -12,6 +12,10 @@ public class Product {
         this.dataWaznosci = dataWaznosci;
     }
 
+    public Product(){
+
+    }
+
     public int getIlosc() {
         return ilosc;
     }

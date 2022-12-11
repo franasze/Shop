@@ -6,19 +6,24 @@ import java.util.Scanner;
 
 public class ProductDB {
 
-    private Product[] products = new Product[5];
+    private final Product[] products = new Product[5];
 
-    public ProductDB(){
-        this.products[0] = new Butter("Lowieckie",10,"20 days");
-        this.products[1] = new Cheese("Goudex",10,"12 days");
-        this.products[2] = new Eggs("Jajopol",10,"14 days");
-        this.products[3] = new Milk("UHT",10,"4 days");
-        this.products[4] = new Mustard("Roleski",10,"21 days");
+    private static final ProductDB instance = new ProductDB();
+
+    private ProductDB(){
+        this.products[0] = new Butter("Masło",10,"20 days");
+        this.products[1] = new Cheese("Ser",10,"12 days");
+        this.products[2] = new Eggs("Jajka",10,"14 days");
+        this.products[3] = new Milk("Mleko",10,"4 days");
+        this.products[4] = new Mustard("Musztarda",10,"21 days");
+    }
+    public Product[] getProducts() {
+        return products;
+    }
+
+    public static ProductDB getInstance() {
+        return instance;
     }
 
 
-    public void adddProduct(int quantity){//!!!
-        System.out.println("quantity: "+ this.products[0].getIlosc());
-        products[0].setIlosc(quantity);
-    }
 }
