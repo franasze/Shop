@@ -7,8 +7,6 @@ import org.apache.commons.codec.digest.DigestUtils;
 public class Authenticator {
 
     final UserDB userDB = UserDB.getInstance();
-    private User loggedUser = null;
-    private final String seed = "OK4wkjJ15XD@T*41pO9M21t^rLhlt#&9srznHWyo";
     private static final Authenticator instance = new Authenticator();
 
     private Authenticator() {
@@ -24,7 +22,7 @@ public class Authenticator {
         }
     }
 
-    public static User loggedUser = null;
+    public User loggedUser = null;
 
     public static final String seed = "12312312312312asdqw1@r";
 
@@ -38,5 +36,5 @@ public class Authenticator {
 
     public String getSeed() {
         return seed;
-    }s
+    }
 }

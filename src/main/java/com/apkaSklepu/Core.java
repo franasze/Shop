@@ -2,27 +2,28 @@ package com.apkaSklepu;
 
 import com.apkaSklepu.database.ProductDB;
 import com.apkaSklepu.database.UserDB;
+import com.apkaSklepu.model.User;
 
 public class Core {
 
     public static void start() {
-        final ProductDB productDB = new ProductDB();
+        final ProductDB productDB = ProductDB.getInstance();
         final UserDB userDB = UserDB.getInstance();
         final Authenticator authenticator = Authenticator.getInstance();
         boolean isRunning = false;
 
 
         while (!isRunning) {
-            switch (GUI.logMenu()) {
+            switch (GUI.showLogMenu()) {
                 case "1":
-                    Registration.createNewUser()
+                    userDB.register(Registration.createNewUser());
                     break;
                 case "2":
                     authenticator.authenticate(GUI.readLoginAndPassword());
                     isRunning = authenticator.loggedUser != null;
-                    if (!isRunning) {
+                    if (!isRunning)
                         System.out.println("Not authorized !");
-                    }
+                    break;
                 case "3":
                     System.exit(0);
                 default:
@@ -37,17 +38,17 @@ public class Core {
 
                     break;
                 case "2":
-
+                    isRunning = false;
                     break;
                 case "3":
-                    if(authenticator.loggedUser != null && Authenticator
-                            .loggedUser.getRole().equals("ADMIN")) {
+                    if(authenticator.loggedUser != null && authenticator
+                            .loggedUser.getRole().equals(User.Role.ADMIN)) {
 
                     }
                     break;
                 case "4":
-                    if(authenticator.loggedUser != null && Authenticator
-                            .loggedUser.getRole().equals("ADMIN")) {
+                    if(authenticator.loggedUser != null && authenticator
+                            .loggedUser.getRole().equals(User.Role.ADMIN)) {
 
                     }
                     break;

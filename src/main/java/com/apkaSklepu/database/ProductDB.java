@@ -25,5 +25,26 @@ public class ProductDB {
         return instance;
     }
 
+    public boolean buyProduct(String name, int quantity){
+        for(Product product : this.products){
+            if(product.getBrand().equals(name) &&
+                    (quantity >= 0 && quantity <= product.getIlosc())){
+                product.setIlosc(product.getIlosc()-quantity);
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean changeProductQuantity(String name, int quantity){
+        for(Product product : this.products){
+            if(product.getBrand().equals(name) && quantity >= 0 ){
+                product.setIlosc(product.getIlosc()+quantity);
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
 }
