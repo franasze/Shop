@@ -6,8 +6,9 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 public class Authenticator {
 
-    final UserDB userDB = UserDB.getInstance();
+    UserDB userDB = UserDB.getInstance();
     private static final Authenticator instance = new Authenticator();
+    public User loggedUser = null;
 
     private Authenticator() {
 
@@ -17,24 +18,19 @@ public class Authenticator {
         User userFromDB = this.userDB.findByLogin(user.getLogin());
         if(userFromDB != null &&
                 userFromDB.getPassword().equals(
-                        DigestUtils.md5Hex(user.getPassword() + this.seed))) {
-            this.loggedUser = userFromDB;
+                        (user.getPassword()))) {
+            loggedUser = userFromDB;
         }
     }
 
-    public User loggedUser = null;
 
-    public static final String seed = "12312312312312asdqw1@r";
+    public final String seed = "12312312312312asdqw1@r";
 
-     static Authenticator getInstance() {
+     public static Authenticator getInstance() {
         return instance;
     }
 
-    public User getLoggedUser() {
-        return loggedUser;
-    }
-
-    public String getSeed() {
-        return seed;
-    }
+//    public String getSeed() {
+//        return seed;
+//    }
 }

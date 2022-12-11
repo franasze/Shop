@@ -12,7 +12,7 @@ public class User {
     }
 
     public User(){
-
+        this.role=Role.USER;
     }
 
     public String getLogin() {

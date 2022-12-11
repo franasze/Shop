@@ -2,8 +2,6 @@ package com.apkaSklepu.database;
 
 import com.apkaSklepu.model.*;
 
-import java.util.Scanner;
-
 public class ProductDB {
 
     private final Product[] products = new Product[5];

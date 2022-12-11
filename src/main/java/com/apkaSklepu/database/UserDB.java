@@ -1,6 +1,5 @@
 package com.apkaSklepu.database;
 
-import com.apkaSklepu.Registration;
 import com.apkaSklepu.model.User;
 
 
@@ -11,7 +10,7 @@ public class UserDB {
 
 
     public UserDB() {
-        this.users[0] = new User("admin", "", User.Role.ADMIN);
+        this.users[0] = new User("admin", "a5c110f5ec7cda3eb0b241b1a2ca73e0", User.Role.ADMIN);
     }
 
     public User[] getUsers() {
@@ -42,6 +41,16 @@ public class UserDB {
     public boolean ifUserExist(String login) {
         for (User user : this.users){
             if(user.getLogin().equals(login)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean giveAdminStatus(String name){
+        for(User user : this.users){
+            if(user.getLogin().equals(name) && user.getRole().equals(User.Role.USER)){
+                user.setRole(User.Role.ADMIN);
                 return true;
             }
         }
