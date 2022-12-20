@@ -1,7 +1,8 @@
-package com.apkaSklepu;
+package com.apkaSklepu.core;
 
 import com.apkaSklepu.database.ProductDB;
 import com.apkaSklepu.database.UserDB;
+import com.apkaSklepu.gui.GUI;
 import com.apkaSklepu.model.User;
 
 public class Core {

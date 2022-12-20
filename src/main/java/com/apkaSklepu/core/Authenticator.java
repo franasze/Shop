@@ -1,8 +1,7 @@
-package com.apkaSklepu;
+package com.apkaSklepu.core;
 
 import com.apkaSklepu.database.UserDB;
 import com.apkaSklepu.model.User;
-import org.apache.commons.codec.digest.DigestUtils;
 
 public class Authenticator {
 

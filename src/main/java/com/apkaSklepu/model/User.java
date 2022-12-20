@@ -42,5 +42,12 @@ public class User {
         ADMIN,
         USER
     }
+    @Override
+    public String toString() {
+        return "User" +
+                "login = " + login +
+                ", password = " + password +
+                ", role = " + role;
+    }
 
 }

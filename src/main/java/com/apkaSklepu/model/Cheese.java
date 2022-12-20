@@ -8,6 +8,12 @@ public class Cheese extends Product{
 
     @Override
     public String toString(){
-        return super.toString();
+        return new StringBuilder()
+                .append(this.getBrand())
+                .append(",       ")
+                .append(this.getIlosc())
+                .append(" products left, expires in ")
+                .append(this.getDataWaznosci())
+                .toString();
     }
 }

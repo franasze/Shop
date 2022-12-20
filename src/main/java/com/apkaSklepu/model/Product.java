@@ -1,6 +1,6 @@
 package com.apkaSklepu.model;
 
-public class Product {
+ public class Product {
 
     private int ilosc;
     private String brand;
@@ -43,9 +43,9 @@ public class Product {
     public String toString(){
         return new StringBuilder()
                 .append(this.getBrand())
-                .append(", ")
+                .append(",     ")
                 .append(this.getIlosc())
-                .append("products left, expires in ")
+                .append(" products left, expires in ")
                 .append(this.getDataWaznosci())
                 .toString();
     }

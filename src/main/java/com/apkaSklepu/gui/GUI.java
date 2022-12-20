@@ -1,5 +1,6 @@
-package com.apkaSklepu;
+package com.apkaSklepu.gui;
 
+import com.apkaSklepu.core.Authenticator;
 import com.apkaSklepu.database.ProductDB;
 import com.apkaSklepu.database.UserDB;
 import com.apkaSklepu.model.Product;
@@ -63,9 +64,10 @@ public class GUI {
     }
     public static void showProductsList() {
         ProductDB productDB = ProductDB.getInstance();
-        System.out.println("Name   Price   Quantity");
+        System.out.println("Name\t\tPrice\t\t\t Quantity");
         for (Product product : productDB.getProducts())
             System.out.println(product);
+        //System.out.println("\n");
     }
     public static void showUsersList(){
         UserDB userDB = UserDB.getInstance();
